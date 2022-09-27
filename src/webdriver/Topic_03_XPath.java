@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_03_XPath_Part_1 {
+public class Topic_03_XPath {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -153,7 +153,7 @@ public class Topic_03_XPath_Part_1 {
 	public void TC_07_Demo_Axes() {
 		driver.get("https://fptshop.com.vn/apple/macbook");
 		
-		//Chọn dung lượng 256GB
+		//Chọn dung lượng 256GB							
 		driver.findElement(By.xpath("//a[@title='MacBook Air 13\" 2020 M1 256GB']/parent::h3/following-sibling::div[@class='product__memory']//strong[text()='256GB']")).click();
 
 		//Click nút MUA NGAY

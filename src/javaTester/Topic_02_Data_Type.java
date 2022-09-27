@@ -11,6 +11,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Topic_02_Data_Type {
 
 	public static void main(String[] args) {
+		//Cách khai báo 1 biến
+		//1 - Kiểu dữ liệu của biến
+		//2 - Tên biến
+		//3 - Giá trị của biến
+		
+		//2 cách khai báo và gán giá trị
+		
+		//1 - Vừa khai báo vừa gán trực tiếp luôn:
+		//Strting name = "Automation Testing";
+		
+		//2 - Khai báo trước rồi gán sau
+		//String name;
+		//name = "Automation Testing";
+		//name = "Automation FC";
+		
 		//I - Kiểu dữ liệu nguyên thủy (Primitive)
 		//1. Số nguyên (không có phần thập phân): byte short int long
 		byte bNumber = 127;
