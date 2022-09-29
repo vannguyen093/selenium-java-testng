@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -92,7 +94,69 @@ public class Topic_05_Web_Browser {
 
 	@Test
 	public void TC_02_Element() {
-		// Các hàm tương tác với Element sẽ thông qua các element
+		driver.get("https://www.facebook.com/");
+		// Các hàm tương tác với Element sẽ thông qua cái class WebElement (biến nào đó)
+		
+		//2 cách để thao tác
+		//1 - Khai báo biến và dùng lại
+		//Dùng đi dùng lại nhiều lần - ít nhất là 2 lần mới khai báo lại
+		
+		//Khai báo biến cùng với kiểu dữ liệu trả về của hàm findElement
+		WebElement emailAddressTextbox = driver.findElement(By.id("email"));
+		emailAddressTextbox.clear();
+		emailAddressTextbox.sendKeys("vannguyen093@gmail.com");
+		
+		//2 - Dùng trực tiếp
+		//Dùng 1 lần
+		driver.findElement(By.id("email")).sendKeys("vannguyen093@gmail.com");
+		
+		//Xóa dữ liệu trong 1 field dạng editable
+		//Textbox/ Text area/ Editable dropdown
+		element.clear();
+		
+		//Nhập dữ liệu vào field dạng editable
+		element.sendKeys("vannguyen093@gmail.com");
+		element.sendKeys(Keys.ENTER);
+		
+		//Trả về giá trị nằm trong cái attribute của element
+		element.getAttribute("placeholder");
+		element.findElement(By.id("firstname")).getAttribute("value");
+		
+		//Trả về thuộc tính Css của element này
+		//Trả về mà nền của element
+		element.getCssValue("background-color");
+		
+		//Test GUI: Point/ Rectangle/ Size (Visualize Testing)
+		element.getLocation();
+		element.getRect();
+		element.getSize();
+		
+		//Chụp hình và attach vào HTML Report
+		element.getScreenshotAs(OutputType.FILE);
+		
+		//Trả về thẻ HTML của element
+		WebElement emailAddressTextbox1 = driver.findElement(By.xpath("//*[@id=email]"));
+		emailAddressTextbox1.getTagName();
+		
+		//Trả về text của 1 element (Link/ Header/ Err.Mess/ Message Success/...)
+		element.getText();
+		
+		//Trả về giá trị đúng hoặc sai của 1 element có hiển thị hoặc không
+		element.isDisplayed();
+		
+		//Trả về giá trị đúng hoặc sai của 1 element có thể thao tác được hay không
+		element.isEnabled();
+		
+		//Trả về giá trị đúng hoặc sai của 1 element đã được chọn rồi hay chưa
+		//Checkbox/ Radio
+		element.isSelected();
+		
+		//Dropdown có 1 thư viện riêng để xử lí (Select)
+		
+		//Chỉ làm việc được với form (register/ login/ search/...)
+		//Submit = ENTER ở 1 field nào đó
+		//Submit vào 1 field nào đó ở trong form
+		element.submit();
 	}
 
 	@Test
