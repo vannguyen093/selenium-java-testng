@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_05_Web_Browser {
+public class Topic_05_Web_Browser_B1 {
 	// Khai báo
 	WebDriver driver;
 	WebElement element;
