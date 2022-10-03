@@ -2,8 +2,6 @@ package webdriver;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.xpath.XPathException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
