@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class Topic_00_Template {
 	WebDriver driver;
-	JavascriptExecutor jsExcutor;
+	JavascriptExecutor jsExecutor;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 
@@ -23,7 +23,7 @@ public class Topic_00_Template {
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		}
 		driver = new FirefoxDriver();
-		jsExcutor = (JavascriptExecutor) driver;
+		jsExecutor = (JavascriptExecutor) driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
