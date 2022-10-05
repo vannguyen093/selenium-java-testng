@@ -64,7 +64,7 @@ public class Topic_13_User_Interaction {
 		sleepInSecond(3);
 		action.moveToElement(driver.findElement(By.xpath("//a[@title='VPP - Dụng Cụ Học Sinh']"))).perform();
 		sleepInSecond(3);
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='fhs_menu_content fhs_column_left']//a[text()='Gôm - Tẩy']")).getText(), "Gôm - Tẩy");
+		Assert.assertEquals(driver.findElement(By.xpath("//input[@class='fhs_menu_content fhs_column_left']//a[text()='Gôm - Tẩy']")).getText(), "Gôm - Tẩy");
 	}
 	
 //	@Test

@@ -48,19 +48,19 @@ public class Topic_06_Textbox_TextArea {
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(lastName);
 		
 		//Lưu giá trị của Employee ID vào biến
-		employeeID = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value");
+		employeeID = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).getAttribute("value");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		sleepInSecond(10);
 		
 		//Verify textbox enabled
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='firstName']")).isEnabled());
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='lastName']")).isEnabled());
-		Assert.assertTrue(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).isEnabled());
+		Assert.assertTrue(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).isEnabled());
 		
 		//Verify actual value equal expected value
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='firstName']")).getAttribute("value"), firstName);
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='lastName']")).getAttribute("value"), lastName);
-		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"), employeeID);
+		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).getAttribute("value"), employeeID);
 		
 //		//Edit dữ liệu mới
 //		driver.findElement(By.xpath("//input[@name='firstName']")).clear();

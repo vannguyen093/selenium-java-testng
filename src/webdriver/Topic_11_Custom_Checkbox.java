@@ -43,7 +43,7 @@ public class Topic_11_Custom_Checkbox {
 //		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='Checked']/preceding-sibling::span/input")).isSelected());
 		
 		//Case 2:
-		//Không dùng thẻ input để click - thay thế bằng 1 thẻ đang hiển thị đại diện cho Checkbox/ Radio: span/ div/...
+		//Không dùng thẻ input để click - thay thế bằng 1 thẻ đang hiển thị đại diện cho Checkbox/ Radio: span/ input/...
 		//Các thẻ này lại không verify được 
 		
 //		driver.findElement(By.xpath("//span[text()='Checked']/preceding-sibling::span")).click();
@@ -93,7 +93,7 @@ public class Topic_11_Custom_Checkbox {
 	public void TC_04_Google() {
 		driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfiypnd69zhuDkjKgqvpID9kwO29UCzeCVrGGtbNPZXQok0jA/viewform");
 		
-		By canThoRadio = By.xpath("//div[@aria-label='Cần Thơ']");
+		By canThoRadio = By.xpath("//input[@aria-label='Cần Thơ']");
 		//Verify trước khi click
 		Assert.assertEquals(driver.findElement(canThoRadio).getAttribute("aria-checked"), "false");
 		//Click chọn
@@ -101,12 +101,12 @@ public class Topic_11_Custom_Checkbox {
 		//Verify sau khi click
 		Assert.assertEquals(driver.findElement(canThoRadio).getAttribute("aria-checked"), "true");
 		
-		By miQuangCheckbox = By.xpath("//div[@aria-label='Mì Quảng']");
+		By miQuangCheckbox = By.xpath("//input[@aria-label='Mì Quảng']");
 		
-		checkToCheckbox("//div[@aria-label='Mì Quảng']");
+		checkToCheckbox("//input[@aria-label='Mì Quảng']");
 		sleepInSecond(3);
 		Assert.assertEquals(driver.findElement(miQuangCheckbox).getAttribute("aria-checked"), "true");
-		uncheckToCheckbox("//div[@aria-label='Mì Quảng']");
+		uncheckToCheckbox("//input[@aria-label='Mì Quảng']");
 		sleepInSecond(3);
 		Assert.assertEquals(driver.findElement(canThoRadio).getAttribute("aria-checked"), "false");
 	}

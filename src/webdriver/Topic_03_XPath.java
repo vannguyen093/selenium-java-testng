@@ -26,7 +26,7 @@ public class Topic_03_XPath {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@Test
+//	@Test
 	public void TC_01_Empty_Data() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		
@@ -46,7 +46,7 @@ public class Topic_03_XPath {
 		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Vui lòng nhập số điện thoại.");
 	}
 
-	@Test
+//	@Test
 	public void TC_02_Invalid_Email() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		
@@ -64,7 +64,7 @@ public class Topic_03_XPath {
 		Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
 	}
 
-	@Test
+//	@Test
 	public void TC_03_Incorrect_Email() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		
@@ -81,7 +81,7 @@ public class Topic_03_XPath {
 		Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
 	}
 
-	@Test
+//	@Test
 	public void TC_04_Invalid_Password() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
@@ -99,7 +99,7 @@ public class Topic_03_XPath {
 		Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(), "Mật khẩu phải có ít nhất 6 ký tự");
 	}
 	
-	@Test
+//	@Test
 	public void TC_05_Incorrect_Password() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
@@ -149,15 +149,15 @@ public class Topic_03_XPath {
 		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Số điện thoại bắt đầu bằng: 09 - 03 - 012 - 016 - 018 - 019 - 088 - 03 - 05 - 07 - 08");
 	}
 	
-	@Test
+//	@Test
 	public void TC_07_Demo_Axes() {
 		driver.get("https://fptshop.com.vn/apple/macbook");
 		
 		//Chọn dung lượng 256GB							
-		driver.findElement(By.xpath("//a[@title='MacBook Air 13\" 2020 M1 256GB']/parent::h3/following-sibling::div[@class='product__memory']//strong[text()='256GB']")).click();
+		driver.findElement(By.xpath("//a[@title='MacBook Air 13\" 2020 M1 256GB']/parent::h3/following-sibling::input[@class='product__memory']//strong[text()='256GB']")).click();
 
 		//Click nút MUA NGAY
-		driver.findElement(By.xpath("//a[@title='MacBook Air 13\" 2020 M1 256GB']/ancestor::div[@class='product_info']/following-sibling::div/a[text()='MUA NGAY']")).click();
+		driver.findElement(By.xpath("//a[@title='MacBook Air 13\" 2020 M1 256GB']/ancestor::input[@class='product_info']/following-sibling::input/a[text()='MUA NGAY']")).click();
 	}
 	
 	@AfterClass

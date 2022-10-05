@@ -45,28 +45,28 @@ public class Topic_08_Custom_Dropdown {
 		// Gọi hàm: 1 hàm có thể gọi 1 hàm khác để dùng trong cùng 1 class
 
 		// Number
-		selectItemInCustomDropdow("#number-button", "#number-menu div", "7");
+		selectItemInCustomDropdow("#number-button", "#number-menu input", "7");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#number-button>.ui-selectmenu-text")).getText(), "7");
-		selectItemInCustomDropdow("#number-button", "#number-menu div", "5");
+		selectItemInCustomDropdow("#number-button", "#number-menu input", "5");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#number-button>.ui-selectmenu-text")).getText(), "5");
 
 		// Speed
-		selectItemInCustomDropdow("#speed-button", "#speed-menu div", "Fast");
+		selectItemInCustomDropdow("#speed-button", "#speed-menu input", "Fast");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#speed-button>.ui-selectmenu-text")).getText(), "Fast");
-		selectItemInCustomDropdow("#speed-button", "#speed-menu div", "Faster");
+		selectItemInCustomDropdow("#speed-button", "#speed-menu input", "Faster");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#speed-button>.ui-selectmenu-text")).getText(),
 				"Faster");
 
 		// Title
-		selectItemInCustomDropdow("#salutation-button", "#salutation-menu div", "Prof.");
+		selectItemInCustomDropdow("#salutation-button", "#salutation-menu input", "Prof.");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(),
 				"Prof.");
-		selectItemInCustomDropdow("#salutation-button", "#salutation-menu div", "Other");
+		selectItemInCustomDropdow("#salutation-button", "#salutation-menu input", "Other");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(),
 				"Other");
@@ -76,14 +76,14 @@ public class Topic_08_Custom_Dropdown {
 	public void TC_02_JQuery_2() {
 		driver.get("https://www.honda.com.vn/o-to/du-toan-chi-phi");
 
-		scrollToElement("div.carousel-item");
+		scrollToElement("input.carousel-item");
 		sleepInSecond(3);
 
-		selectItemInCustomDropdow("#selectize-input", "#selectize-input+div>a", "CITY L");
+		selectItemInCustomDropdow("#selectize-input", "#selectize-input+input>a", "CITY L");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#selectize-input")).getText(), "CITY L");
 
-		scrollToElement("div.container");
+		scrollToElement("input.container");
 		sleepInSecond(3);
 
 		Select select = new Select(driver.findElement(By.cssSelector("select#province")));
@@ -121,7 +121,7 @@ public class Topic_08_Custom_Dropdown {
 		
 		enterItemInCustomDropdow("input.search", ".active .text", "American Samoa");
 		sleepInSecond(2);
-		Assert.assertEquals(driver.findElement(By.cssSelector(".divider")).getText(), "American Samoa");
+		Assert.assertEquals(driver.findElement(By.cssSelector(".inputider")).getText(), "American Samoa");
 	}
 
 	@AfterClass
