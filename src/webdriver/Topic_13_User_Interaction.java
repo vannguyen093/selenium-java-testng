@@ -119,7 +119,7 @@ public class Topic_13_User_Interaction {
 		Assert.assertEquals(hexaColor, "#F39814");
 	}
 	
-	@Test
+//	@Test
 	public void TC_06_Double_Click() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		jsExcutor.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("//button[text()='Double click me']")));
@@ -127,7 +127,44 @@ public class Topic_13_User_Interaction {
 		
 		Assert.assertEquals(driver.findElement(By.cssSelector("#demo")).getText(), "Hello Automation Guys!");
 	}
+	
+//	@Test
+	public void TC_07_Right_Click() {
+		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
+		
+		//Click chuột phải vào btn
+		action.contextClick(driver.findElement(By.cssSelector(".context-menu-one"))).perform();
+		sleepInSecond(3);
+		
+		//Hover vào 1 item bất kỳ
+		action.moveToElement(driver.findElement(By.cssSelector(".context-menu-icon-paste"))).perform();
+		
+		//Verify Paste có trạng thái hover và visible
+		Assert.assertTrue(driver.findElement(By.cssSelector(".context-menu-icon-paste.context-menu-hover.context-menu-visible")).isDisplayed());
+		
+		//Click vào Paste
+		action.click(driver.findElement(By.cssSelector(".context-menu-icon-paste"))).perform();
+		
+		//Handle alert
+		driver.switchTo().alert().accept();
+		
+		//Verify Paste có trạng thái: invisible
+		Assert.assertFalse(driver.findElement(By.cssSelector(".context-menu-icon-paste")).isDisplayed());
+	}
 
+	@Test
+	public void TC_08_Drag_And_Drop_HTML4() {
+		driver.get("https://automationfc.github.io/kendo-drag-drop/");
+		
+		WebElement smallCircle = driver.findElement(By.cssSelector("#draggable"));
+		WebElement bigCircle = driver.findElement(By.cssSelector("#droptarget"));
+		
+		action.dragAndDrop(smallCircle, bigCircle).perform();
+		sleepInSecond(3);
+		
+		Assert.assertEquals(bigCircle.getText(), "You did great!");
+	}
+	
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
