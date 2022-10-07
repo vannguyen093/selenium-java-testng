@@ -24,7 +24,7 @@ public class Topic_00_Template {
 		}
 		driver = new FirefoxDriver();
 		jsExecutor = (JavascriptExecutor) driver;
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@Test
