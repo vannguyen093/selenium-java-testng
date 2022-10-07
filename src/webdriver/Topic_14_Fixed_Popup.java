@@ -98,12 +98,12 @@ public class Topic_14_Fixed_Popup {
 		
 		driver.findElement(By.cssSelector("a[data-testid='open-registration-form-button']")).click();
 		sleepInSecond(3);
-		Assert.assertTrue(driver.findElement(By.xpath("//div[text()='Đăng ký']/parent::div/parent::div")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//div[text()='Sign Up']/parent::div/parent::div")).isDisplayed());
 		
-		driver.findElement(By.xpath("//div[text()='Đăng ký']/parent::div/preceding-sibling::img")).click();
+		driver.findElement(By.xpath("//div[text()='Sign Up']/parent::div/preceding-sibling::img")).click();
 		sleepInSecond(3);
 		
-		Assert.assertEquals(driver.findElements(By.xpath("//div[text()='Đăng ký']/parent::div/parent::div")).size(), 0);
+		Assert.assertEquals(driver.findElements(By.xpath("//div[text()='Sign Up']/parent::div/parent::div")).size(), 0);
 	}
 
 	@AfterClass
