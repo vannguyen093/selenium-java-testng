@@ -9,7 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_20_Wait_FindElement_FindElements {
+public class Topic_22_Wait_ExplicitWait {
 	WebDriver driver;
 	JavascriptExecutor jsExecutor;
 	String projectPath = System.getProperty("user.dir");
@@ -45,5 +45,12 @@ public class Topic_20_Wait_FindElement_FindElements {
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
+	}
+	public void sleepInSecond (long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
