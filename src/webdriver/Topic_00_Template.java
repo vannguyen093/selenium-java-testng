@@ -1,7 +1,5 @@
 package webdriver;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,7 +22,6 @@ public class Topic_00_Template {
 		}
 		driver = new FirefoxDriver();
 		jsExecutor = (JavascriptExecutor) driver;
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@Test
@@ -45,12 +42,5 @@ public class Topic_00_Template {
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
-	}
-	public void sleepInSecond (long timeInSecond) {
-		try {
-			Thread.sleep(timeInSecond * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 }
