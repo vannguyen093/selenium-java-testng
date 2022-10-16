@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Tiki Web Application">
+
+<suite-files>
+	<suite-file path="RunTikiAdmin.xml"/>
+	<suite-file path="RunTikiUser.xml"/>
+</suite-files>
+  
+</suite> <!-- Suite -->

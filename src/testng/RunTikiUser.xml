@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="tests" name="Suite">
+
+
+	<parameter name="enviroment" value="dev" />
+	<parameter name="enviroment" value="test" />
+	<parameter name="enviroment" value="live" />
+
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox" />
+		<groups>
+			<run>
+				<include name="user" />
+			</run>
+		</groups>
+		<packages>
+			<package name="tiki.user" />
+		</packages>
+	</test>
+
+
+</suite>
