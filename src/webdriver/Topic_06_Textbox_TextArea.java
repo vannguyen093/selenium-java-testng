@@ -18,7 +18,7 @@ public class Topic_06_Textbox_TextArea {
 
 	@BeforeClass
 	public void beforeClass() {
-		if(osName.contains("Mac OS")) {
+		if (osName.contains("Mac OS")) {
 			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		} else {
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
@@ -34,54 +34,54 @@ public class Topic_06_Textbox_TextArea {
 	@Test
 	public void TC_01_Textbox_TextArea() {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		
+
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
 		driver.findElement(By.cssSelector(".orangehrm-login-button")).click();
 		sleepInSecond(10);
-		
-		//Mở màn hình Add Employee
+
+		// Mở màn hình Add Employee
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee");
 		sleepInSecond(10);
-		
+
 		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys(firstName);
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(lastName);
-		
-		//Lưu giá trị của Employee ID vào biến
-		employeeID = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).getAttribute("value");
+
+		// Lưu giá trị của Employee ID vào biến
+		employeeID = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div[@class='oxd-input-group__label-wrapper']/following-sibling::div/input")).getAttribute("value");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		sleepInSecond(10);
-		
-		//Verify textbox enabled
+
+		// Verify textbox enabled
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='firstName']")).isEnabled());
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='lastName']")).isEnabled());
-		Assert.assertTrue(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).isEnabled());
-		
-		//Verify actual value equal expected value
+		Assert.assertTrue(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div[@class='oxd-input-group__label-wrapper']/following-sibling::div/input")).isEnabled());
+
+		// Verify actual value equal expected value
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='firstName']")).getAttribute("value"), firstName);
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='lastName']")).getAttribute("value"), lastName);
-		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::input/following-sibling::input/input")).getAttribute("value"), employeeID);
-		
-//		//Edit dữ liệu mới
-//		driver.findElement(By.xpath("//input[@name='firstName']")).clear();
-//		driver.findElement(By.xpath("//input[@name='lastName']")).clear();
-//		sleepInSecond(5);
-//		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys(editFirstName);
-//		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(editLastName);
-//		driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
-//		sleepInSecond(10);
-//		
-//		//Verify giá trị mới nhập
-//		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='firstName']")).getAttribute("value"), editFirstName);
-//		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='lastName']")).getAttribute("value"), editLastName);
-	}
+		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div[@class='oxd-input-group__label-wrapper']/following-sibling::div/input")).getAttribute("value"), employeeID);
 
+		// //Edit dữ liệu mới
+		// driver.findElement(By.xpath("//input[@name='firstName']")).clear();
+		// driver.findElement(By.xpath("//input[@name='lastName']")).clear();
+		// sleepInSecond(5);
+		// driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys(editFirstName);
+		// driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(editLastName);
+		// driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+		// sleepInSecond(10);
+		//
+		// //Verify giá trị mới nhập
+		// Assert.assertEquals(driver.findElement(By.xpath("//input[@name='firstName']")).getAttribute("value"), editFirstName);
+		// Assert.assertEquals(driver.findElement(By.xpath("//input[@name='lastName']")).getAttribute("value"), editLastName);
+	}
 
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
 	}
-	public void sleepInSecond (long timeInSecond) {
+
+	public void sleepInSecond(long timeInSecond) {
 		try {
 			Thread.sleep(timeInSecond * 1000);
 		} catch (InterruptedException e) {
