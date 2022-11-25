@@ -33,12 +33,12 @@ public class Topic_08_Custom_Dropdown {
 		}
 		driver = new FirefoxDriver();
 		jsExecutor = (JavascriptExecutor) driver;
-//		driver.manage().window().setSize(new Dimension(1366, 768));
+		// driver.manage().window().setSize(new Dimension(1366, 768));
 		explicitWait = new WebDriverWait(driver, 30);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@Test
+	// @Test
 	public void TC_01_JQuery() {
 		driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");
 
@@ -58,32 +58,29 @@ public class Topic_08_Custom_Dropdown {
 		Assert.assertEquals(driver.findElement(By.cssSelector("#speed-button>.ui-selectmenu-text")).getText(), "Fast");
 		selectItemInCustomDropdow("#speed-button", "#speed-menu input", "Faster");
 		sleepInSecond(2);
-		Assert.assertEquals(driver.findElement(By.cssSelector("#speed-button>.ui-selectmenu-text")).getText(),
-				"Faster");
+		Assert.assertEquals(driver.findElement(By.cssSelector("#speed-button>.ui-selectmenu-text")).getText(), "Faster");
 
 		// Title
 		selectItemInCustomDropdow("#salutation-button", "#salutation-menu input", "Prof.");
 		sleepInSecond(2);
-		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(),
-				"Prof.");
+		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(), "Prof.");
 		selectItemInCustomDropdow("#salutation-button", "#salutation-menu input", "Other");
 		sleepInSecond(2);
-		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(),
-				"Other");
+		Assert.assertEquals(driver.findElement(By.cssSelector("#salutation-button>.ui-selectmenu-text")).getText(), "Other");
 	}
 
 	@Test
 	public void TC_02_JQuery_2() {
 		driver.get("https://www.honda.com.vn/o-to/du-toan-chi-phi");
 
-		scrollToElement("input.carousel-item");
+		scrollToElement("div.carousel-item");
 		sleepInSecond(3);
 
-		selectItemInCustomDropdow("#selectize-input", "#selectize-input+input>a", "CITY L");
+		selectItemInCustomDropdow("#selectize-input", "#selectize-input+div>a", "CITY L");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#selectize-input")).getText(), "CITY L");
 
-		scrollToElement("input.container");
+		scrollToElement("div.container");
 		sleepInSecond(3);
 
 		Select select = new Select(driver.findElement(By.cssSelector("select#province")));
@@ -97,7 +94,7 @@ public class Topic_08_Custom_Dropdown {
 		Assert.assertEquals(select.getFirstSelectedOption().getText(), "Khu vực II");
 	}
 
-	@Test
+	// @Test
 	public void TC_03_React() {
 		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-selection/");
 
@@ -106,7 +103,7 @@ public class Topic_08_Custom_Dropdown {
 		Assert.assertEquals(driver.findElement(By.cssSelector(".dropdown")).getText(), "Matt");
 	}
 
-	@Test
+	// @Test
 	public void TC_04_VueJS() {
 		driver.get("https://mikerodham.github.io/vue-dropdowns/");
 
@@ -114,11 +111,11 @@ public class Topic_08_Custom_Dropdown {
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".dropdown-toggle")).getText(), "Second Option");
 	}
-	
-	@Test
+
+	// @Test
 	public void TC_05_Editable() {
 		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-search-selection/");
-		
+
 		enterItemInCustomDropdow("input.search", ".active .text", "American Samoa");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".inputider")).getText(), "American Samoa");
@@ -166,7 +163,7 @@ public class Topic_08_Custom_Dropdown {
 			}
 		}
 	}
-	
+
 	public void enterItemInCustomDropdow(String parentLocator, String childLocator, String textExpectedItem) {
 		// 1 - Click vào 1 phần tử nào đó thuộc dropdown để nó xổ ra
 		driver.findElement(By.cssSelector(parentLocator)).clear();
